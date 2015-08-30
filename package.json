@@ -1,0 +1,28 @@
+{
+  "name": "Raffle",
+  "version": "0.0.0",
+  "description": "Micro app to draw.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pgrangeiro/raffle.git"
+  },
+  "keywords": [
+    "raffle",
+    "draw",
+    "html",
+    "js",
+    "css"
+  ],
+  "author": "Paula Grangeiro",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/pgrangeiro/raffle/issues"
+  },
+  "dependencies": {
+    "bower": "~1.5.2",
+  }
+}

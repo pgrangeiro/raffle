@@ -1,0 +1,26 @@
+{
+  "name": "Raffle",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pgrangeiro/raffle",
+  "authors": [
+    "Paula Grangeiro <pgrangeiro.dev@gmail.com>"
+  ],
+  "description": "Micro app to draw",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "raffle",
+    "draw",
+    "html",
+    "js",
+    "css"
+  ],
+  "license": "BSD",
+  "dependencies": {
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-connect": "~0.11.2",
+    "grunt-contrib-watch": "~0.6.1"
+  }
+}
