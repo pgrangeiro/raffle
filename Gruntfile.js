@@ -17,7 +17,11 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['static/js/*.js'],
+        src: [
+            'static/js/jquery-1.11.3.js',
+            'static/js/json2.js',
+            'static/js/*.js',
+        ],
         dest: 'dist/<%= pkg.name %>.js'
       }
     },
@@ -71,6 +75,10 @@ module.exports = function(grunt) {
         options: {
             nospawn: true,
         }
+      },
+      scripts: {
+        files: ['static/js/*.js'],
+        tasks: ['concat', 'uglify'],
       },
       options: {
         livereload: true
