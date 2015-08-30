@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['lib/<%= pkg.name %>.js'],
+        src: ['static/js/*.js'],
         dest: 'dist/<%= pkg.name %>.js'
       }
     },
@@ -65,18 +65,37 @@ module.exports = function(grunt) {
         files: '<%= jshint.lib_test.src %>',
         tasks: ['jshint:lib_test', 'qunit']
       },
+      styles: {
+        files: ['static/less/*.less'],
+        tasks: ['less'],
+        options: {
+            nospawn: true,
+        }
+      },
       options: {
-          livereload: true
+        livereload: true
       },
     },
     connect: {
-        server: {
-            options: {
-                hostname: '0.0.0.0',
-                port: 9000,
-            }
+      server: {
+        options: {
+          hostname: '0.0.0.0',
+          port: 9000,
         }
-    }
+      }
+    },
+    less: {
+      default: {
+        options: {
+          compress: true,
+          yuicompress: true,
+          optimization: 2 ,
+        },
+        files: {
+          'dist/<%= pkg.name %>.css': 'static/less/<%= pkg.name %>.less',
+        }
+      }
+    },
   });
 
   // These plugins provide necessary tasks.
@@ -86,8 +105,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify', 'connect', 'watch']);
+  grunt.registerTask('build', ['jshint', 'qunit', 'concat', 'uglify', 'less']);
+  grunt.registerTask('default', ['build', 'connect', 'watch']);
 
 };
